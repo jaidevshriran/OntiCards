@@ -293,6 +293,7 @@ def ensure_upload_folder():
 
 
 class UploadAvatarAPI(Resource):
+    @login_required
     def post(self):
         try:
             # 确保上传目录存在
@@ -331,6 +332,7 @@ class UploadAvatarAPI(Resource):
         else:
             return {'message': 'Unsupported file format', 'code': 400}
 
+    @login_required
     def put(self):
         try:
             # 确保上传目录存在
